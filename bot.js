@@ -96,30 +96,20 @@ client.user.setGame("-help -invite|By Mahdi ", "https://www.twitch.tv/alpha");
 
 
 
-client.on('ready', () => {// افنت التشغيل 
-  setInterval(function(){
-      client.guilds.forEach(g => { // فور ايرج تدخل للسيرفرات كلها
-                  var role = g.roles.find('name', 'Rainbow');//Rainbow  اسم الرتبة عشان يسوي ريمبو غيرها اذا تبي
-                  if (role) {
-                      role.edit({color : "RANDOM"});
-                  };
-      });
-  }, 10000);// وقت الريمبو لا تغيرة لانه الوقت المسموح للتغيير
-})
+
 
 client.on("message", async message => {
     if(message.content.startsWith(prefix + "help")) {
         let help = new Discord.RichEmbed()
             .setColor("RANDOM")
             .setThumbnail(message.author.avatarURL)
-            .setDescription(`**__ticketbot and rainbow | by Mahdi__ 
+            .setDescription(`**__ticketbot| by Mahdi__ 
 
           ${prefix}new :  لفتح تيك 
           ${prefix}close :  لقفل التكيت  
      ${prefix}invite: لدعوه البوت الي سيرفرك
          ${prefix}bot:لمعلومات الوت
 Support Team ملحوظه يجب عمل رتبه
-				 لعمل ريينبو قم بعمل رولRainbowوهتشتغل اوتوماتيك
             **`);
 			
             message.channel.sendEmbed(help); // رابط السيرفر يعود الى سيرفر CODES .
