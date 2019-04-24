@@ -1,6 +1,6 @@
 ﻿const Discord = require("discord.js");
 const client = new Discord.Client();
-const prefix = "-";
+const prefix = "=";
 
 
  
@@ -39,7 +39,7 @@ client.user.setGame("-help -invite | By Mahdi ", "https://www.twitch.tv/alpha");
  
  client.on("message", (message) => {
  
-   if (message.content.startsWith("-new")) {  
+   if (message.content.startsWith("=new")) {  
         const reason = message.content.split(" ").slice(1).join(" ");  
         if (!message.guild.roles.exists("name", "Support Team")) return message.channel.send(`لازم تسوي رتبة اسمها \`Support Team\` وتنطي البوت ادمنيتر حتا يقدر يسوي الرومات ويعدل برمشنات`);
         if (message.guild.channels.exists("name", "ticket-{message.author.id}" + message.author.id)) return message.channel.send(`You already have a ticket open.`);    /// ALPHA CODES
@@ -70,12 +70,12 @@ client.user.setGame("-help -invite | By Mahdi ", "https://www.twitch.tv/alpha");
     }
  
  
-  if (message.content.startsWith("-close")) {
+  if (message.content.startsWith("=close")) {
         if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`You can't use the close command outside of a ticket channel.`);
  
-       message.channel.send(`هل انت متأكد من اقفالك للتذكرة اذا متأكد اكتب-confirm`)
+       message.channel.send(`هل انت متأكد من اقفالك للتذكرة اذا متأكد اكتب=confirm`)
            .then((m) => {
-               message.channel.awaitMessages(response => response.content === '-confirm', {
+               message.channel.awaitMessages(response => response.content === '=confirm', {
                        max: 1,
                        time: 10000,
                        errors: ['time'],
@@ -120,7 +120,7 @@ Support Team ملحوظه يجب عمل رتبه
 
 client.on('message', message => {
   if (true) {
-if (message.content === '-invite') {
+if (message.content === '=invite') {
       message.author.send(' https://discordapp.com/api/oauth2/authorize?client_id=558575428499931136&permissions=8&scope=bot  |  تفضل ربط البوت     ').catch(e => console.log(e.stack));
  
     }
